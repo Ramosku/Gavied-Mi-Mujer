@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Mi Amor ❤️</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="card">
+  <div class="heart">❤️</div>
+
+  <h1>Feliz Día del Libro, Gavied ❤️</h1>
+
+  <p class="mensaje">
+    Así como los libros guardan historias increíbles...
+    tú eres la historia más hermosa que llegó a mi vida.
+  </p>
+
+  <p class="mensaje">
+    Cada día contigo es una nueva página que quiero seguir escribiendo.
+  </p>
+
+  <button onclick="mostrarMensaje()">Ábreme 💌</button>
+
+  <!-- FOTO OCULTA -->
+  <div id="foto" class="foto-container oculto">
+    <p>La niña mas linda del mundo 📸</p>
+    <img src="WhatsApp Image 2026-04-23 at 12.04.29 PM.jpeg" alt="Foto de nosotros">
+  </div>
+</div>
+
+<!-- CONTENEDOR CORAZONES -->
+<div id="corazones"></div>
+
+<!-- MÚSICA -->
+<audio id="musica" src="Mitski - My Love Mine All Mine.mp3" loop></audio>
+
+<script>
+function mostrarMensaje() {
+  alert("Gavied, eres mi historia favorita ❤️📖\nTe amo muchísimo 💖");
+
+  // Mostrar foto
+  document.getElementById("foto").classList.remove("oculto");
+
+  // Reproducir música
+  document.getElementById("musica").play();
+
+  // Iniciar corazones infinitos
+  iniciarLluvia();
+}
+
+function iniciarLluvia() {
+  setInterval(() => {
+    crearCorazon();
+  }, 300);
+}
+
+function crearCorazon() {
+  const contenedor = document.getElementById("corazones");
+
+  let corazon = document.createElement("div");
+  corazon.classList.add("corazon");
+  corazon.innerHTML = "❤️";
+
+  corazon.style.left = Math.random() * 100 + "vw";
+  corazon.style.animationDuration = (Math.random() * 3 + 2) + "s";
+  corazon.style.fontSize = (Math.random() * 20 + 15) + "px";
+
+  contenedor.appendChild(corazon);
+
+  setTimeout(() => {
+    corazon.remove();
+  }, 5000);
+}
+</script>
+
+</body>
+</html>
